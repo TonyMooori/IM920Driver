@@ -7,12 +7,13 @@
 そのためIM920cで動作確認をしていますが，IM920でも動作すると思われます．  
 busyピンの処理が未実装です(が一応動きます)．
 
-## 利用の仕方
-このリポジトリのファイルをダウンロードしてArduinoのフォルダ内のlibrariesに突っ込めば利用できます．
+## ライブラリの利用の仕方
+このリポジトリのファイルをダウンロードしてArduinoのフォルダ内のlibrariesに追加すると利用できます．．
 以下は./example/example.inoの補足説明になります．
 
 ### ハードウェア
-接続は下図の通りです．
+./example/example.inoでの接続は下図の通りです．
+
 |Arduino|IM920 board|
 |:------|:------|
 |3.3v|VCC|
@@ -21,7 +22,10 @@ busyピンの処理が未実装です(が一応動きます)．
 |11(TX)|RX|
 
 ### ソフトウェア
-./example/example.inoを参照．以下は簡単な補足説明です．詳細はヘッダーファイルを参照してください．
+./example/example.inoを参照．
+
+## リファレンス
+以下は簡単な補足説明です．詳細はヘッダーファイルを参照してください．
 
 + IM920Driver::IM920Driver
     - コンストラクタです．引数にIM920と通信するためのSoftwareSerialのポインタを与えてください．
@@ -38,12 +42,12 @@ busyピンの処理が未実装です(が一応動きます)．
 + IM920Driver::get_line_changed
     - 1行読み込まれた場合に，get_last_lineを呼び出すまでtrueを返します．
 
-### リンク
+## リンク
 - im920のArduinoから利用する方法が書かれたページ
     http://www.miyakawa.link/?p=273
 - im920のペアリングについて書かれたページ
     http://www.miyakawa.link/?p=520
-- im920の説明スライド．公式が書いてるので内容に信頼が持てるしマニュアルには見当たらない設定(ECIO,DCIO)の話が載ってる←？？？
+- im920の説明スライド．公式が書いてるので内容に信頼が持てます．またマニュアルには見当たらない設定(ECIO,DCIO)の話が載っています←？？？
     http://www.interplan.co.jp/support/solution/IM315/catalog/IM920_intro.pdf
 - im920の紹介ページ
     http://www.interplan.co.jp/solution/wireless/im920.php
