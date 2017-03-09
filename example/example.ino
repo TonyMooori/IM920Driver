@@ -17,7 +17,7 @@ void setup() {
 }
 
 void loop() {
-  char buff[MAX_LINE_LENGTH + 1];
+  char buff[IM920_BUFFER_SIZE];
   int n;
 
  
@@ -28,12 +28,8 @@ void loop() {
     // 改行が認識された場合
     if ( im920.get_line_changed() ) {
       // その1行を受け取る
-      im920.get_last_line((uint8_t*)buff);
-      // 1行の文字数を取得
-      n = im920.get_line_length();
-      // 文字列の最後をヌル文字で埋める
-      buff[n] = '\0';
-
+      im920.get_last_line(buff);
+      
       // "OK"や"NG"でなければ表示する
       if ( strcmp(buff, "OK\r\n") != 0 && strcmp(buff, "NG\r\n") != 0) {
         Serial.println("New line >>");

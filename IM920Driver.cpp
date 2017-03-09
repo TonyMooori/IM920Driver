@@ -21,11 +21,13 @@ char IM920Driver::read() {
   if ( _ser->available() ) c = _ser->read();
   else return c;
 
-  _idx = min(MAX_LINE_LENGTH - 1, _idx);
+  _idx = min(IM920_BUFFER_SIZE - 2, _idx);
   _current_line[_idx] = c;
   _idx++;
 
   if ( c == '\n' ) {
+    _current_line[_idx] = '\0';
+    
     uint8_t *temp;
     temp = _current_line;
     _current_line = _last_line;
@@ -51,10 +53,11 @@ void IM920Driver::send(const char str[]) {
 }
 
 // get last line data
-void IM920Driver::get_last_line(uint8_t buff[MAX_LINE_LENGTH]) {
+void IM920Driver::get_last_line(char buff[IM920_BUFFER_SIZE]) {
   _line_changed = false;
   for (int i = 0 ; i < _line_length; i++ )
     buff[i] = _last_line[i];
+  buff[_line_length] = '\0';
 }
 
 // get the length of line data
