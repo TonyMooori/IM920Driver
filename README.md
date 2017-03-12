@@ -36,7 +36,7 @@ busyピンの処理が未実装です(が一応動きます)．
 + IM920Driver::send
     - データをIM920に送る関数です．後ろに"\r\n"を勝手につけてくれます．例えばsend("RDID")とすれば固有IDが返ってきます．
 + IM920Driver::get_last_line
-    - read()で読み込まれた文字列のうち，最後に読み込まれた1行分のデータを引数のbuffに代入します．ヌル文字('\0')が付加されていないのでget_line_lengthで文字数を取得してください．
+    - read()で読み込まれた文字列のうち，最後に読み込まれた1行分のデータを引数のbuffに代入します．
 + IM920Driver::get_line_length
     - read()で読み込まれた文字列のうち，最後に読み込まれた1行の文字数を返します．
 + IM920Driver::get_line_changed
