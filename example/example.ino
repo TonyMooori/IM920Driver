@@ -12,7 +12,12 @@ IM920Driver im920(&IM920Serial);
 void setup() {
   IM920Serial.begin(19200); // デフォルトでは19200bps(設定で変更可)
   Serial.begin(19200);
-
+  
+  // ECIOモードにする(デフォルトでDCIO)
+  // im920.send("ECIO");
+  
+  // DCIOモードにする(デフォルトでDCIO)
+  // im920.send("DCIO");
   delay(1000);
 }
 
@@ -35,7 +40,7 @@ void loop() {
         Serial.println("New line >>");
         Serial.println(buff);
         
-        // 通信相手に
+        // 通信相手にデータを送る
         im920.send("TXDA 54455354");
       }
     }
